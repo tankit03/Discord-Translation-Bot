@@ -1,6 +1,7 @@
 require('dotenv').config();
 
-const  {Client, IntentsBitField } = require('discord.js');
+const  {Client, IntentsBitField, MessageActionRow, MessageButton } = require('discord.js');
+const translate = require('@iamtraction/google-translate');
 
 const client = new Client ({
         intents: [
@@ -26,5 +27,8 @@ client.on('messageCreate', (message) => {
     }
 
 });
+
+
+
 
 client.login(process.env.TOKEN);
