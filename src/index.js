@@ -24,8 +24,8 @@ client.on('interactionCreate', (interaction) => {
         const text = interaction.options.getString('text');
 
         translate(text, {to: language}).then(res => {
-
-            interaction.reply(`Here is your translated ${language} text: **${res.text}**`);
+            
+            interaction.reply(` Here is the language you choose: **${language}**\nHere is your text before translation: **${text}**\nHere is your translated ${language} text: **${res.text}**`);
             
         })
         .catch(err => {
