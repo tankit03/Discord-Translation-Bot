@@ -10,22 +10,57 @@ const client = new Client ({
         IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.MessageContent,
         ]
-
 });
 
 client.on('ready', (c) => {
     console.log(`:D ${c.user.displayName} is ready to go!`);
 });
 
-client.on('messageCreate', (message) => {
-    if(message.author.bot) {
-        return;
-    }
+client.on('interactionCreate', (interaction) => {
+    if(!interaction.isChatInputCommand()) return;
 
-    if(message.content === 'hello') {
-        message.reply('hello there! I am a langauage translation bot !');
-    }
+    // if(interaction.commandName === 'hey') {
+    //      interaction.reply('hey!');
+    // }
+    // if (interaction.commandName === 'ping') {
+    //      interaction.reply('pong!');
+    // }
+    if (interaction.commandName === 'spanish') {
+        const text = interaction.options.getString('text');
 
+        translate(text, {to: 'es'}).then(res => {
+
+            interaction.reply(`Here is your Spanish translation 🇪🇸 : **${res.text}**`);
+            
+        })
+        .catch(err => {
+            console.error("Error during translation:", err);
+        });
+    }
+    if (interaction.commandName === 'french') {
+        const text = interaction.options.getString('text');
+
+        translate(text, {to: 'fr'}).then(res => {
+
+            interaction.reply(`Here is your French translation 🇫🇷 : **${res.text}**`);
+            
+        })
+        .catch(err => {
+            console.error("Error during translation:", err);
+        });
+    }
+    if (interaction.commandName === 'hindi') {
+        const text = interaction.options.getString('text');
+
+        translate(text, {to: 'hi'}).then(res => {
+
+            interaction.reply(`Here is your Hindi translation 🇮🇳 : **${res.text}**`);
+            
+        })
+        .catch(err => {
+            console.error("Error during translation:", err);
+        });
+    }
 });
 
 
