@@ -4,41 +4,61 @@ const {REST, Routes, ApplicationCommandOptionType } = require('discord.js');
 const commands = [ 
 
     {
-        name: 'spanish',
-        description: 'will translate english to spanish for you 🇪🇸 ',
+        name: 'translation',
+        description: 'will translate english to any language for you 🌎 ',
         options: [
             {
+                name: 'language',
+                description: 'Pick the language you want to translate to 🌎',
+
+                type: ApplicationCommandOptionType.String,
+                required: true,
+            },
+            {
                 name: 'text',
-                description: 'The text you want to translate to Spanish 🇪🇸',
+                description: 'The text you want to translate',
                 type: ApplicationCommandOptionType.String,
                 required: true,
             },
         ],
     },
-    {
-        name: 'french',
-        description: 'will translate english to French for you 🇫🇷 ',
-        options: [
-            {
-                name: 'text',
-                description: 'The text you want to translate to French 🇫🇷',
-                type: ApplicationCommandOptionType.String,
-                required: true,
-            },
-        ],
-    },
-    {
-        name: 'hindi',
-        description: 'will translate english to Hindi for you 🇮🇳 ',
-        options: [
-            {
-                name: 'text',
-                description: 'The text you want to translate to Hindi 🇮🇳',
-                type: ApplicationCommandOptionType.String,
-                required: true,
-            },
-        ],
-    },
+
+    // {
+    //     name: 'spanish',
+    //     description: 'will translate english to spanish for you 🇪🇸 ',
+    //     options: [
+    //         {
+    //             name: 'text',
+    //             description: 'The text you want to translate to Spanish 🇪🇸',
+    //             type: ApplicationCommandOptionType.String,
+    //             required: true,
+    //         },
+    //     ],
+    // },
+    // {
+    //     name: 'french',
+    //     description: 'will translate english to French for you 🇫🇷 ',
+    //     options: [
+    //         {
+    //             name: 'text',
+    //             description: 'The text you want to translate to French 🇫🇷',
+    //             type: ApplicationCommandOptionType.String,
+    //             required: true,
+    //         },
+    //     ],
+    // },
+    // {
+    //     name: 'hindi',
+    //     description: 'will translate english to Hindi for you 🇮🇳 ',
+    //     options: [
+    //         {
+    //             name: 'text',
+    //             description: 'The text you want to translate to Hindi 🇮🇳',
+    //             type: ApplicationCommandOptionType.String,
+    //             required: true,
+    //         },
+    //     ],
+    // },
 
 ];
 

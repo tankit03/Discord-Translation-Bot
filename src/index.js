@@ -19,48 +19,20 @@ client.on('ready', (c) => {
 client.on('interactionCreate', (interaction) => {
     if(!interaction.isChatInputCommand()) return;
 
-    // if(interaction.commandName === 'hey') {
-    //      interaction.reply('hey!');
-    // }
-    // if (interaction.commandName === 'ping') {
-    //      interaction.reply('pong!');
-    // }
-    if (interaction.commandName === 'spanish') {
+    if (interaction.commandName === 'translation') {
+        const language = interaction.options.getString('language');
         const text = interaction.options.getString('text');
 
-        translate(text, {to: 'es'}).then(res => {
+        translate(text, {to: language}).then(res => {
 
-            interaction.reply(`Here is your Spanish translation 🇪🇸 : **${res.text}**`);
+            interaction.reply(`Here is your translated ${language} text: **${res.text}**`);
             
         })
         .catch(err => {
             console.error("Error during translation:", err);
         });
     }
-    if (interaction.commandName === 'french') {
-        const text = interaction.options.getString('text');
-
-        translate(text, {to: 'fr'}).then(res => {
-
-            interaction.reply(`Here is your French translation 🇫🇷 : **${res.text}**`);
-            
-        })
-        .catch(err => {
-            console.error("Error during translation:", err);
-        });
-    }
-    if (interaction.commandName === 'hindi') {
-        const text = interaction.options.getString('text');
-
-        translate(text, {to: 'hi'}).then(res => {
-
-            interaction.reply(`Here is your Hindi translation 🇮🇳 : **${res.text}**`);
-            
-        })
-        .catch(err => {
-            console.error("Error during translation:", err);
-        });
-    }
+    
 });
 
 
